@@ -38,16 +38,22 @@ class Api {
     return stores;
   }
 
-  Future<User?> getUserInfo(int id) async {
+  Future<User> getUserInfo(int id) async {
     // int id = 7;
     String endpoint = "/api/v1/userinfo/$id";
-    User? user;
+    User user = User(
+      0,
+      name: "User",
+    );
     try {
       final response =
           await http.get(Uri.parse(_host + endpoint), headers: _headers);
 
+      if (kDebugMode) {}
       if (response.statusCode == 200) {
-        user = User.fromJson(await jsonDecode(response.body));
+        Map<String, dynamic> decoded = await jsonDecode(response.body);
+
+        user = User.fromJson(decoded['data']['user'][0]);
       }
     } catch (error) {
       if (kDebugMode) {

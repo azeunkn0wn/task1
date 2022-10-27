@@ -13,26 +13,28 @@ User _$UserFromJson(Map<String, dynamic> json) {
   );
   return User(
     json['id'] as int,
-    json['name'] as String?,
-    json['phone'] as String?,
-    json['email'] as String?,
-    json['phone_confirmed'] == null
+    name: json['name'] as String? ?? '',
+    phone: json['phone'] as String? ?? '',
+    email: json['email'] as String? ?? '',
+    phone_confirmed: json['phone_confirmed'] == null
         ? false
         : User._boolFromInt(json['phone_confirmed'] as int),
-    json['is_active'] == null
+    is_active: json['is_active'] == null
         ? false
         : User._boolFromInt(json['is_active'] as int),
-    json['gender'] as String?,
-    json['access_token'] as String?,
-    json['referred_by_code'] as String?,
-    json['referral_code'] as String?,
-    json['cashout_method'] as String?,
-    json['cashout_value'] as String?,
+    gender: json['gender'] as String? ?? '',
+    access_token: json['access_token'] as String? ?? '',
+    referred_by_code: json['referred_by_code'] as String? ?? '',
+    referral_code: json['referral_code'] as String? ?? '',
+    cashout_method: json['cashout_method'] as String? ?? '',
+    cashout_value: json['cashout_value'] as String? ?? '',
+    portfolio_value: (json['portfolio_value'] as num?)?.toDouble() ?? 0.0,
   );
 }
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
+      'portfolio_value': instance.portfolio_value,
       'name': instance.name,
       'phone': instance.phone,
       'email': instance.email,

@@ -33,6 +33,7 @@ flutter:
     - assets/json/topstore.json
     - assets/right_arrow.svg
     - assets/icon_friends.svg
+    - assets/images/logo.png
   uses-material-design: true
   fonts:
     - family: OpenSans
