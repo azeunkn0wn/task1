@@ -29,6 +29,7 @@ class _Screen1State extends State<Screen1> {
 
   List<Widget> tiles() {
     List<Widget> panels = [
+      padding,
       const TopStoreTile(),
       padding,
       const TopCategoryTile(),
@@ -36,7 +37,9 @@ class _Screen1State extends State<Screen1> {
       const RecentlyVisited(),
       padding,
       const InviteCard(),
-      padding
+      padding,
+      padding,
+      padding,
     ];
 
     return panels;
@@ -60,7 +63,6 @@ class _Screen1State extends State<Screen1> {
                 )),
             pinned: true,
             expandedHeight: 202.0,
-            collapsedHeight: kToolbarHeight,
             actions: [
               IconButton(
                 icon: const Icon(Icons.notifications_outlined),
@@ -168,9 +170,9 @@ class _Screen1State extends State<Screen1> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.surface,
-                          borderRadius: const BorderRadius.only(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20),
                           ),
@@ -186,7 +188,12 @@ class _Screen1State extends State<Screen1> {
             ),
           ),
           SliverToBoxAdapter(
-            child: Column(children: tiles()),
+            child: Container(
+              color: Colors.white,
+              child: Column(
+                children: tiles(),
+              ),
+            ),
           )
         ],
       ),
