@@ -1,0 +1,22 @@
+{
+    "status": true,
+    "data": {
+        "user": [
+            {
+                "id": 7,
+                "name": "Test user 1",
+                "phone": "+911111111111",
+                "email": "test_roman@gmail.com",
+                "phone_confirmed": 1,
+                "is_active": 1,
+                "gender": "male",
+                "access_token": "$2y$10$J1quOsaM9A4GOOBJ94.JoupJkdAcKS3tyeDwo.qRYkJ2D0Ev4iCuW",
+                "referred_by_code": "sjdasw",
+                "referral_code": "https:\/\/redim.page.link?amv=21&apn=com.bits.redim&ibi=com.bits.redim&imv=1.0.0&link=https%3A%2F%2Fredim.page.link%2Ffriend%3Fcode%3D366271",
+                "cashout_method": "Pay",
+                "cashout_value": null
+            }
+        ],
+        "portfolio_value": 4524.000036902726
+    }
+}
