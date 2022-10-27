@@ -28,8 +28,10 @@ class _RecentlyVisitedState extends State<RecentlyVisited> {
     return Column(
       children: [
         // ignore: avoid_print
-        const TileHeader(
+        TileHeader(
           title: "Recetly Visited",
+          seeMore: () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('See more recently visited'))),
         ),
         // wait for the list to load
         FutureBuilder<List<Widget>>(

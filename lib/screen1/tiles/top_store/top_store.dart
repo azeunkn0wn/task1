@@ -39,7 +39,11 @@ class _TopStoreTileState extends State<TopStoreTile> {
     return Column(
       children: [
         // ignore: avoid_print
-        TileHeader(title: "Top Brands", seeMore: () => print("do something")),
+        TileHeader(
+          title: "Top Brands",
+          seeMore: () => ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('See more brands'))),
+        ),
         // wait for the list to load
         FutureBuilder<List<Widget>>(
           future: listViewItems,

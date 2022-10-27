@@ -48,7 +48,11 @@ class _TopCategoryTileState extends State<TopCategoryTile> {
     return Column(
       children: [
         // ignore: avoid_print
-        const TileHeader(title: "Top Categories"),
+        TileHeader(
+          title: "Top Categories",
+          seeMore: () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('See more categories'))),
+        ),
         // wait for the list to load
         FutureBuilder<List<Widget>>(
           future: listViewItems,

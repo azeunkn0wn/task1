@@ -13,7 +13,7 @@ class InviteCard extends StatelessWidget {
         margin: const EdgeInsets.all(2),
         clipBehavior: Clip.hardEdge,
         shape: const RoundedRectangleBorder(
-            side: BorderSide(color: Color(0xFFDADADA), width: 1),
+            // side: BorderSide(color: Color(0xFFDADADA), width: 1),
             borderRadius: BorderRadius.all(Radius.circular(14.0))),
         color: const Color(0xFFE5F8FF),
         child: Container(

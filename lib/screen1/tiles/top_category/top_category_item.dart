@@ -25,43 +25,47 @@ class CategoryItem extends StatelessWidget {
           semanticsLabel: 'See All');
     }
 
-    return SizedBox(
-      height: 100,
-      width: 70,
-      child: Column(
-        children: [
-          SizedBox(
-            height: 58,
-            width: 58,
-            child: Container(
-              decoration: BoxDecoration(
-                color: category.color!.toColor()!,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(12.0),
+    return InkWell(
+      onTap: () => ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(category.name!))),
+      child: SizedBox(
+        height: 100,
+        width: 70,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 58,
+              width: 58,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: category.color!.toColor()!,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(12.0),
+                  ),
+                ),
+                child: Container(
+                  margin: EdgeInsets.all(isCategory ? 10.0 : 19.0),
+                  child: icon,
                 ),
               ),
-              child: Container(
-                margin: EdgeInsets.all(isCategory ? 10.0 : 19.0),
-                child: icon,
-              ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 8),
-          ),
-          Text(
-            category.name!,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Color(
-                0xFF5B5B5B,
-              ),
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
-              letterSpacing: -0.3,
+            const Padding(
+              padding: EdgeInsets.only(top: 8),
             ),
-          )
-        ],
+            Text(
+              category.name!,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Color(
+                  0xFF5B5B5B,
+                ),
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                letterSpacing: -0.3,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

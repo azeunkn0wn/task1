@@ -35,8 +35,6 @@ class _Screen1State extends State<Screen1> {
       padding,
       const RecentlyVisited(),
       padding,
-      const TopStoreTile(),
-      padding,
       const InviteCard(),
       padding
     ];
