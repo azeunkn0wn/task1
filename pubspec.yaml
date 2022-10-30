@@ -19,6 +19,7 @@ dependencies:
   url_launcher: ^6.1.6
   http: ^0.13.5
   flutter_svg: ^1.1.6
+  gradient_like_css: ^1.0.1
 
 dev_dependencies:
   build_runner: ^2.3.2
@@ -31,9 +32,16 @@ dev_dependencies:
 flutter:
   assets:
     - assets/json/topstore.json
+    - assets/images/logo.png
     - assets/right_arrow.svg
     - assets/icon_friends.svg
-    - assets/images/logo.png
+    - assets/home.svg
+    - assets/menu.svg
+    - assets/portfolio.svg
+    - assets/shop.svg
+    - assets/notification.svg
+    - assets/search.svg
+
   uses-material-design: true
   fonts:
     - family: OpenSans

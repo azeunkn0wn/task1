@@ -84,6 +84,7 @@ class StoreCard extends StatelessWidget {
       height: 170,
       width: 170,
       child: Card(
+        elevation: 0,
         margin: const EdgeInsets.symmetric(horizontal: 5),
         clipBehavior: Clip.hardEdge,
         color: Colors.white,

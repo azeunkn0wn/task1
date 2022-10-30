@@ -18,9 +18,7 @@ class _TileHeaderState extends State<TileHeader> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: const EdgeInsets.symmetric(
-      //   horizontal: 24,
-      // ),
+      color: Colors.transparent,
       padding: const EdgeInsets.only(bottom: 20, left: 24, right: 24),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,

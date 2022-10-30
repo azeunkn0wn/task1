@@ -44,16 +44,19 @@ class _RecentlyVisitedState extends State<RecentlyVisited> {
                 result = SizedBox(
                   height: 170,
                   child: ListView(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 22),
                       scrollDirection: Axis.horizontal,
                       children: snapshot.data!),
                 );
               } else {
-                result = const SizedBox(
-                  height: 22,
-                  child: Center(
+                result = Container(
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.symmetric(horizontal: 22),
+                  child: const SizedBox(
+                    height: 22,
                     child: Text(
                       'Shop on your interested stores just viewed!',
+                      textAlign: TextAlign.start,
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,

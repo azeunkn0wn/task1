@@ -45,49 +45,51 @@ class _TopCategoryTileState extends State<TopCategoryTile> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // ignore: avoid_print
-        TileHeader(
-          title: "Top Categories",
-          seeMore: () => ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('See more categories'))),
-        ),
-        // wait for the list to load
-        FutureBuilder<List<Widget>>(
-          future: listViewItems,
-          builder:
-              (BuildContext context, AsyncSnapshot<List<Widget>> snapshot) {
-            Widget result;
-            if (snapshot.hasData) {
-              result = ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                scrollDirection: Axis.horizontal,
-                children: snapshot.data!,
-              );
-            } else if (snapshot.hasError) {
-              result = Column(
-                children: [
-                  const Icon(
-                    Icons.error_outline,
-                    color: Color(0xFF979797),
-                    size: 60,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text('Error: ${snapshot.error}'),
-                  ),
-                ],
-              );
-            } else {
-              result = const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            return SizedBox(height: 100, child: result);
-          },
-        ),
-      ],
+    return Container(
+      color: Colors.white,
+      child: Column(
+        children: [
+          TileHeader(
+            title: "Top Categories",
+            seeMore: () => ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('See more categories'))),
+          ),
+          // wait for the list to load
+          FutureBuilder<List<Widget>>(
+            future: listViewItems,
+            builder:
+                (BuildContext context, AsyncSnapshot<List<Widget>> snapshot) {
+              Widget result;
+              if (snapshot.hasData) {
+                result = ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  scrollDirection: Axis.horizontal,
+                  children: snapshot.data!,
+                );
+              } else if (snapshot.hasError) {
+                result = Column(
+                  children: [
+                    const Icon(
+                      Icons.error_outline,
+                      color: Color(0xFF979797),
+                      size: 60,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text('Error: ${snapshot.error}'),
+                    ),
+                  ],
+                );
+              } else {
+                result = const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return SizedBox(height: 100, child: result);
+            },
+          ),
+        ],
+      ),
     );
   }
 }

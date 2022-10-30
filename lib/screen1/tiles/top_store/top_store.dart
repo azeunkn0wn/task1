@@ -36,63 +36,64 @@ class _TopStoreTileState extends State<TopStoreTile> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // ignore: avoid_print
-        TileHeader(
-          title: "Top Brands",
-          seeMore: () => ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('See more brands'))),
-        ),
-        // wait for the list to load
-        FutureBuilder<List<Widget>>(
-          future: listViewItems,
-          builder:
-              (BuildContext context, AsyncSnapshot<List<Widget>> snapshot) {
-            Widget result;
-            if (snapshot.hasData) {
-              if (snapshot.data!.isNotEmpty) {
-                result = SizedBox(
-                  height: 170,
-                  child: ListView(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      scrollDirection: Axis.horizontal,
-                      children: snapshot.data!),
+    return Container(
+      color: Colors.white,
+      child: Column(
+        children: [
+          TileHeader(
+            title: "Top Brands",
+            seeMore: () => ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('See more brands'))),
+          ),
+          FutureBuilder<List<Widget>>(
+            future: listViewItems,
+            builder:
+                (BuildContext context, AsyncSnapshot<List<Widget>> snapshot) {
+              Widget result;
+              if (snapshot.hasData) {
+                if (snapshot.data!.isNotEmpty) {
+                  result = SizedBox(
+                    height: 170,
+                    child: ListView(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        scrollDirection: Axis.horizontal,
+                        children: snapshot.data!),
+                  );
+                } else {
+                  result = const Center(
+                    child: Text(
+                      'Empty',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF979797)),
+                    ),
+                  );
+                }
+              } else if (snapshot.hasError) {
+                result = Column(
+                  children: [
+                    const Icon(
+                      Icons.error_outline,
+                      color: Color(0xFF979797),
+                      size: 60,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text('Error: ${snapshot.error}'),
+                    ),
+                  ],
                 );
               } else {
                 result = const Center(
-                  child: Text(
-                    'Empty',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF979797)),
-                  ),
+                  child: CircularProgressIndicator(),
                 );
               }
-            } else if (snapshot.hasError) {
-              result = Column(
-                children: [
-                  const Icon(
-                    Icons.error_outline,
-                    color: Color(0xFF979797),
-                    size: 60,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text('Error: ${snapshot.error}'),
-                  ),
-                ],
-              );
-            } else {
-              result = const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            return result;
-          },
-        ),
-      ],
+              return result;
+            },
+          ),
+        ],
+      ),
     );
   }
 }
